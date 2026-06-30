@@ -3,14 +3,14 @@
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 
 const temples = [
   { src: "/images/banke-bihari.jpg", name: "Banke Bihari Temple" },
-  { src: "/images/prem-mandir.jpg", name: "Prem Mandir" },
+  { src: "/images/prem-mandir2.jpg", name: "Prem Mandir" },
   { src: "/images/iskcon.jpg", name: "ISKCON Temple" },
-  { src: "/images/chandrodaya.png", name: "Chandrodaya Mandir" },
+  { src: "/images/chandrodaya.jpg", name: "Chandrodaya Mandir" },
 ];
 
 export default function SpiritualCapital() {
@@ -54,11 +54,7 @@ export default function SpiritualCapital() {
           className="mb-14"
         />
 
-        {/* Frame container */}
-        <div className="relative copper-frame px-6 md:px-10 py-10 md:py-14 bg-transparent">
-          {/* Inner thin corners (decorative tick marks) */}
-          <CornerTicks />
-
+        <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {temples.map((t, i) => {
@@ -66,46 +62,63 @@ export default function SpiritualCapital() {
                 return (
                   <div
                     key={t.name}
-                    className="flex-[0_0_70%] md:flex-[0_0_56%] lg:flex-[0_0_48%] px-3 md:px-5"
+                    className="flex-[0_0_80%] md:flex-[0_0_44%] lg:flex-[0_0_40%]"
                   >
                     <motion.div
                       animate={{
-                        scale: isActive ? 1 : 0.92,
-                        opacity: isActive ? 1 : 0.55,
+                        scale: isActive ? 1 : 1,
                       }}
-                      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                       className="relative"
+                      style={{ zIndex: isActive ? 10 : 1 }}
                     >
-                      <div className="relative aspect-[16/10] overflow-hidden">
+                      <div
+                        className="relative aspect-[4/3] overflow-hidden"
+                        style={{
+                          outline: isActive ? "3px solid rgba(139,74,43,0.5)" : "none",
+                          outlineOffset: "-3px",
+                        }}
+                      >
                         <Image
                           src={t.src}
                           alt={t.name}
                           fill
-                          sizes="(min-width:1024px) 48vw, 70vw"
-                          className={`object-cover transition-all duration-700 ${
-                            isActive ? "" : "sepia-[0.7] saturate-50"
-                          }`}
-                          style={{
-                            filter: isActive ? "none" : "sepia(0.65) saturate(0.6) brightness(0.85)",
+                          sizes="(min-width:1024px) 40vw, 80vw"
+                          className="object-cover"
+                        />
+                        <motion.div
+                          animate={{
+                            opacity: isActive ? 0 : 0.65,
                           }}
+                          transition={{ duration: 0.6, ease: "easeInOut" }}
+                          className="absolute inset-0"
+                          style={{ backgroundColor: "rgba(110, 58, 34, 0.75)" }}
                         />
                       </div>
-                      <div
-                        className={`mt-3 mx-auto w-fit px-8 py-2 transition-opacity duration-500 ${
-                          isActive ? "opacity-100" : "opacity-0"
-                        }`}
-                        style={{
-                          background: "rgba(244,236,220,0.95)",
-                          border: "1px solid rgba(139,74,43,0.4)",
-                        }}
-                      >
-                        <p
-                          className="display-heading text-[16px] md:text-[20px] text-copper-deep text-center whitespace-nowrap"
-                          style={{ letterSpacing: "0.06em" }}
-                        >
-                          {t.name}
-                        </p>
-                      </div>
+
+                      {/* Temple name label — only visible on active slide */}
+                      <AnimatePresence mode="wait">
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -4 }}
+                            transition={{ duration: 0.4, delay: 0.15 }}
+                            className="mt-4 mx-auto w-fit px-10 py-2.5"
+                            style={{
+                              background: "rgba(244,236,220,0.95)",
+                              border: "1px solid rgba(139,74,43,0.35)",
+                            }}
+                          >
+                            <p
+                              className="display-heading text-[15px] md:text-[19px] text-copper-deep text-center whitespace-nowrap"
+                              style={{ letterSpacing: "0.07em" }}
+                            >
+                              {t.name}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </motion.div>
                   </div>
                 );
@@ -113,17 +126,17 @@ export default function SpiritualCapital() {
             </div>
           </div>
 
-          {/* Arrows */}
+          {/* Navigation arrows */}
           <button
             onClick={scrollPrev}
             aria-label="Previous"
-            className="absolute left-1 md:left-3 top-1/2 -translate-y-1/2 text-cream-50 hover:text-white transition-colors"
+            className="absolute left-4 md:left-8 top-[40%] -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-white/90 hover:text-white transition-colors duration-200"
           >
-            <svg width="28" height="40" viewBox="0 0 28 40" fill="none">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none">
               <path
-                d="M22 4L6 20L22 36"
+                d="M20 4L4 20L20 36"
                 stroke="currentColor"
-                strokeWidth="1.5"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -132,13 +145,13 @@ export default function SpiritualCapital() {
           <button
             onClick={scrollNext}
             aria-label="Next"
-            className="absolute right-1 md:right-3 top-1/2 -translate-y-1/2 text-cream-50 hover:text-white transition-colors"
+            className="absolute right-4 md:right-8 top-[40%] -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-white/90 hover:text-white transition-colors duration-200"
           >
-            <svg width="28" height="40" viewBox="0 0 28 40" fill="none">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none">
               <path
-                d="M6 4L22 20L6 36"
+                d="M4 4L20 20L4 36"
                 stroke="currentColor"
-                strokeWidth="1.5"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -151,17 +164,5 @@ export default function SpiritualCapital() {
         </p>
       </div>
     </section>
-  );
-}
-
-function CornerTicks() {
-  const cls = "absolute w-4 h-4 border-copper/60";
-  return (
-    <>
-      <span className={`${cls} border-l border-t top-0 left-0`} />
-      <span className={`${cls} border-r border-t top-0 right-0`} />
-      <span className={`${cls} border-l border-b bottom-0 left-0`} />
-      <span className={`${cls} border-r border-b bottom-0 right-0`} />
-    </>
   );
 }

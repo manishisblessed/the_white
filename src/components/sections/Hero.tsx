@@ -1,22 +1,22 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
     <section id="hero" className="relative bg-cream-50 pt-[170px] md:pt-[180px]">
-      {/* Hero image */}
+      {/* Hero video */}
       <div className="relative w-full h-[62vh] md:h-[78vh] min-h-[460px] overflow-hidden">
-        <Image
-          src="/images/hero.jpg"
-          alt="The White Butter Residences"
-          fill
-          priority
-          quality={90}
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/hero.jpg"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        >
+          <source src="/images/hero_video.mp4" type="video/mp4" />
+        </video>
         {/* Subtle warm overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/10" />
 

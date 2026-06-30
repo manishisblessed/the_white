@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Insignia from "@/components/Insignia";
 
 const interests = [
   "Luxury Studio",
@@ -58,12 +58,19 @@ export default function Enquiry() {
             <br /> Others are measured in meaning.
             <br /> If you feel called to White Butter Residences,
             <br /> we&apos;d be delighted to connect with you.
+            <br /> Begin The Conversation
           </p>
         </div>
 
         {/* Right - logo */}
         <div className="md:col-span-3 flex justify-center md:justify-end">
-          <Insignia size={56} variant="white" withLockup />
+          <Image
+            src="/images/The White Butter-Logo.png"
+            alt="The White Butter Residences"
+            width={200}
+            height={200}
+            className="w-[150px] md:w-[200px] h-auto brightness-0 invert"
+          />
         </div>
       </div>
 

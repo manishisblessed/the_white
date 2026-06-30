@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import Insignia from "./Insignia";
 
 const links = [
   { label: "HOME", href: "#hero" },
@@ -31,7 +31,14 @@ export default function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 pt-5 pb-3 flex flex-col items-center">
         <a href="#hero" aria-label="The White Butter Residences home">
-          <Insignia size={48} withLockup />
+          <Image
+            src="/images/The_White_Butter_Logo-main.png"
+            alt="The White Butter Residences"
+            width={200}
+            height={80}
+            className="w-[140px] md:w-[180px] h-auto"
+            priority
+          />
         </a>
 
         <nav className="mt-4 w-full">

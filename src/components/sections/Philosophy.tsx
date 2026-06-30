@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Insignia from "@/components/Insignia";
+import Image from "next/image";
 
 export default function Philosophy() {
   return (
@@ -58,7 +58,13 @@ export default function Philosophy() {
             transition={{ duration: 1.4, delay: 0.2 }}
             className="lg:col-span-4 flex justify-center items-center"
           >
-            <Insignia size={150} variant="copper" />
+            <Image
+              src="/images/icon.png"
+              alt="The White Butter Insignia"
+              width={160}
+              height={230}
+              className="object-contain"
+            />
           </motion.div>
 
           {/* Right column - The Insignia */}
@@ -78,31 +84,26 @@ export default function Philosophy() {
 
             <div className="space-y-5">
               <div className="flex items-start gap-4 pb-5 border-b border-copper/20">
-                <svg width="22" height="32" viewBox="0 0 22 32" className="flex-shrink-0 mt-1">
-                  <path
-                    d="M9 4 Q9 1, 11 1 Q13 1, 13 4 L13 22 Q13 28, 11 28 Q9 28, 9 22 Z"
-                    stroke="#8B4A2B"
-                    strokeWidth="1"
-                    fill="#8B4A2B"
-                  />
-                </svg>
+                <Image
+                  src="/images/candle.png"
+                  alt="Tilak motif"
+                  width={24}
+                  height={48}
+                  className="flex-shrink-0 mt-0.5 object-contain"
+                />
                 <p className="body-serif text-[15px] md:text-[16px] text-ink/85 leading-[1.7]">
                   The central motif draws inspiration from the sacred tilak
                   worn by devotees.
                 </p>
               </div>
               <div className="flex items-start gap-4">
-                <svg width="22" height="32" viewBox="0 0 22 32" className="flex-shrink-0 mt-1">
-                  <ellipse
-                    cx="11"
-                    cy="16"
-                    rx="7"
-                    ry="13"
-                    stroke="#8B4A2B"
-                    strokeWidth="1.2"
-                    fill="none"
-                  />
-                </svg>
+                <Image
+                  src="/images/oval.png"
+                  alt="Japa mala oval"
+                  width={28}
+                  height={42}
+                  className="flex-shrink-0 mt-1 object-contain"
+                />
                 <p className="body-serif text-[15px] md:text-[16px] text-ink/85 leading-[1.7]">
                   The surrounding beads echo the rhythm of the japa mala,
                   carried through countless prayers and chants.
@@ -113,7 +114,7 @@ export default function Philosophy() {
             <p className="body-serif text-[15px] md:text-[16px] italic text-copper-deep/85 mt-8 leading-[1.7]">
               Together they represent three enduring ideas:
               <br />
-              <span className="not-italic display-heading text-copper-deep text-[17px] tracking-wider">
+              <span className="not-italic body-serif text-copper-deep text-[15px] md:text-[16px]" style={{ fontWeight: 600 }}>
                 Faith. Devotion. Belonging.
               </span>
             </p>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import StatCounter from "@/components/StatCounter";
 
@@ -23,7 +24,13 @@ export default function Devika() {
             transition={{ duration: 1 }}
             className="flex flex-col items-start md:items-center"
           >
-            <DevikaLogo />
+            <Image
+              src="/images/logo_devika.png"
+              alt="Devika Group"
+              width={280}
+              height={80}
+              className="w-[200px] md:w-[280px] h-auto"
+            />
             <p
               className="mt-2 text-devika-navy text-[12px] tracking-[0.4em]"
               style={{ fontFamily: "var(--font-montserrat)" }}
@@ -93,25 +100,3 @@ export default function Devika() {
   );
 }
 
-function DevikaLogo() {
-  return (
-    <div className="inline-flex items-baseline gap-[0.04em]">
-      <span
-        className="text-devika-navy text-[44px] md:text-[56px] font-extrabold tracking-[0.04em] leading-none"
-        style={{ fontFamily: "var(--font-montserrat)" }}
-      >
-        D
-      </span>
-      <div className="flex flex-col items-center justify-end gap-[3px]" style={{ marginBottom: "0.18em" }}>
-        <span className="block bg-devika-red" style={{ width: "0.7em", height: "3px", fontSize: "44px" }} />
-        <span className="block bg-devika-red" style={{ width: "0.7em", height: "3px", fontSize: "44px" }} />
-      </div>
-      <span
-        className="text-devika-navy text-[44px] md:text-[56px] font-extrabold tracking-[0.04em] leading-none"
-        style={{ fontFamily: "var(--font-montserrat)" }}
-      >
-        EVIKA
-      </span>
-    </div>
-  );
-}
