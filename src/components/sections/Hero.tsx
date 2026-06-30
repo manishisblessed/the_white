@@ -12,7 +12,6 @@ export default function Hero() {
           muted
           loop
           playsInline
-          poster="/images/hero.jpg"
           className="absolute inset-0 w-full h-full object-cover object-center"
         >
           <source src="https://github.com/manishisblessed/the_white/raw/main/public/images/hero_video.mp4" type="video/mp4" />
