@@ -19,8 +19,8 @@ export default function Hero() {
         {/* Subtle warm overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/10" />
 
-        {/* Headline + play button positioned across the hero */}
-        <div className="absolute inset-0 flex flex-col items-center px-6 text-center pt-[20%] pb-[10%]">
+        {/* Headline positioned across the hero */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -32,36 +32,20 @@ export default function Hero() {
             <br />
             Reserved For A Blessed Few
           </motion.h1>
-
-          {/* Play button */}
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            aria-label="Watch video"
-            className="mt-auto group flex flex-col items-center"
-          >
-            <span className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/85 flex items-center justify-center backdrop-blur-[2px] bg-white/5 group-hover:bg-white/15 transition-all duration-500">
-              <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-6 md:h-6 ml-1 fill-white">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-            <span className="mt-4 px-5 py-1.5 border border-white/85 text-white text-[10px] md:text-[11px] tracking-[0.32em] uppercase">
-              Watch Video
-            </span>
-          </motion.button>
         </div>
 
         {/* Social rail */}
         <div className="hidden md:flex absolute right-5 top-1/2 -translate-y-1/2 flex-col gap-3">
           {[
-            { label: "Facebook", icon: "facebook" },
-            { label: "Instagram", icon: "instagram" },
-            { label: "YouTube", icon: "youtube" },
+            { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/TheWhiteButterOfficial/" },
+            { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/thewhitebutterofficial/" },
+            { label: "YouTube", icon: "youtube", href: "https://www.youtube.com/@thewhitebutterofficial" },
           ].map((s) => (
             <a
               key={s.icon}
-              href="#"
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={s.label}
               className="w-7 h-7 rounded-full border border-white/70 text-white flex items-center justify-center hover:bg-white hover:text-copper transition-colors"
             >

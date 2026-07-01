@@ -24,13 +24,15 @@ export default function Enquiry() {
         {/* Social */}
         <div className="md:col-span-2 flex md:flex-col gap-3 items-center md:items-start">
           {[
-            { label: "Facebook", icon: "facebook" },
-            { label: "Instagram", icon: "instagram" },
-            { label: "YouTube", icon: "youtube" },
+            { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/TheWhiteButterOfficial/" },
+            { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/thewhitebutterofficial/" },
+            { label: "YouTube", icon: "youtube", href: "https://www.youtube.com/@thewhitebutterofficial" },
           ].map((s) => (
             <a
               key={s.icon}
-              href="#"
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={s.label}
               className="w-8 h-8 rounded-full border border-cream-50/70 flex items-center justify-center text-cream-50 hover:bg-cream-50 hover:text-copper-deep transition-colors"
             >

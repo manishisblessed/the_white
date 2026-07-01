@@ -75,6 +75,29 @@ body {
   }
 }
 
+/* Destination overlay — full cream cover on mobile, left-fade on desktop */
+.destination-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(244, 236, 220, 0.95) 0%,
+    rgba(244, 236, 220, 0.88) 55%,
+    rgba(244, 236, 220, 0.45) 80%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .destination-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(244, 236, 220, 0.92) 0%,
+      rgba(244, 236, 220, 0.82) 35%,
+      rgba(244, 236, 220, 0.3) 60%,
+      transparent 80%
+    );
+  }
+}
+
 /* Lenis smooth-scroll base */
 html.lenis,
 html.lenis body {

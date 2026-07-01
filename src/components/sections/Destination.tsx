@@ -25,88 +25,151 @@ function TempleMarker() {
 
 export default function Destination() {
   return (
-    <section
-      id="destination"
-      className="relative min-h-[600px] md:min-h-[700px] overflow-hidden"
-    >
-      {/* Full-width background image */}
-      <Image
-        src="/images/destination-building-cropped.png"
-        alt="White Butter Residences architectural render"
-        fill
-        sizes="100vw"
-        className="object-cover object-right"
-        priority={false}
-      />
-
-      {/* Soft gradient overlay for text readability on the left */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(244,236,220,0.92) 0%, rgba(244,236,220,0.82) 35%, rgba(244,236,220,0.3) 60%, transparent 80%)",
-        }}
-      />
-
-      {/* Text content overlaid on the left */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-24">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="max-w-md lg:max-w-lg"
-        >
-          <h2 className="eyebrow text-[20px] md:text-[24px] text-copper-deep mb-2">
-            The Destination
-          </h2>
-          <p
-            className="display-heading text-[18px] md:text-[22px] mb-7 text-ink"
-            style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontWeight: 600 }}
+    <section id="destination" className="overflow-hidden">
+      {/* ── Mobile: stacked layout (text then image) ── */}
+      <div className="md:hidden bg-cream-50">
+        <div className="px-6 py-14">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
           >
-            An Address Blessed By Proximity
-          </p>
+            <h2 className="eyebrow text-[20px] text-copper-deep mb-2">
+              The Destination
+            </h2>
+            <p
+              className="display-heading text-[18px] mb-7 text-ink"
+              style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontWeight: 600 }}
+            >
+              An Address Blessed By Proximity
+            </p>
 
-          <p className="body-serif text-[16px] md:text-[17px] text-ink leading-[1.85] mb-8">
-            Not every residence is built near sacred landmarks. Some become
-            extraordinary because of where they stand. Located in the heart of
-            modern Vrindavan, White Butter Residences places you moments away
-            from the city&apos;s most revered destinations.
-          </p>
+            <p className="body-serif text-[16px] text-ink leading-[1.85] mb-8">
+              Not every residence is built near sacred landmarks. Some become
+              extraordinary because of where they stand. Located in the heart of
+              modern Vrindavan, White Butter Residences places you moments away
+              from the city&apos;s most revered destinations.
+            </p>
 
-          <ul className="space-y-2.5 mb-8">
-            {landmarks.map((l, i) => (
-              <motion.li
-                key={l.name}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.1 + i * 0.07 }}
-                className="flex items-center gap-2"
-              >
-                <TempleMarker />
-                <span className="display-heading text-[14px] md:text-[15px] text-copper-deep" style={{ fontWeight: 600 }}>
-                  {l.name}
-                </span>
-                <Image
-                  src="/images/candle.png"
-                  alt=""
-                  width={8}
-                  height={16}
-                  className="object-contain opacity-80"
-                />
-                <span className="body-serif text-[14px] md:text-[15px] text-copper-deep tabular-nums ml-4">
-                  {l.distance}
-                </span>
-              </motion.li>
-            ))}
-          </ul>
+            <ul className="space-y-2.5 mb-8">
+              {landmarks.map((l, i) => (
+                <motion.li
+                  key={l.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.1 + i * 0.07 }}
+                  className="flex items-center gap-2"
+                >
+                  <TempleMarker />
+                  <span className="display-heading text-[14px] text-copper-deep" style={{ fontWeight: 600 }}>
+                    {l.name}
+                  </span>
+                  <Image
+                    src="/images/candle.png"
+                    alt=""
+                    width={8}
+                    height={16}
+                    className="object-contain opacity-80"
+                  />
+                  <span className="body-serif text-[14px] text-copper-deep tabular-nums ml-4">
+                    {l.distance}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
 
-          <p className="body-serif text-[15px] md:text-[16px] text-copper-deep leading-[1.7]" style={{ fontWeight: 600 }}>
-            A location that brings you closer
-            <br /> to devotion, every single day.
-          </p>
-        </motion.div>
+            <p className="body-serif text-[15px] text-copper-deep leading-[1.7]" style={{ fontWeight: 600 }}>
+              A location that brings you closer
+              <br /> to devotion, every single day.
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="relative w-full h-[320px]">
+          <Image
+            src="/images/destination-building-cropped.png"
+            alt="White Butter Residences architectural render"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+      </div>
+
+      {/* ── Desktop: original overlaid layout ── */}
+      <div className="hidden md:block relative min-h-[700px]">
+        <Image
+          src="/images/destination-building-cropped.png"
+          alt="White Butter Residences architectural render"
+          fill
+          sizes="100vw"
+          className="object-cover object-right"
+          priority={false}
+        />
+
+        <div className="absolute inset-0 destination-overlay" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            className="max-w-md lg:max-w-lg"
+          >
+            <h2 className="eyebrow text-[24px] text-copper-deep mb-2">
+              The Destination
+            </h2>
+            <p
+              className="display-heading text-[22px] mb-7 text-ink"
+              style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontWeight: 600 }}
+            >
+              An Address Blessed By Proximity
+            </p>
+
+            <p className="body-serif text-[17px] text-ink leading-[1.85] mb-8">
+              Not every residence is built near sacred landmarks. Some become
+              extraordinary because of where they stand. Located in the heart of
+              modern Vrindavan, White Butter Residences places you moments away
+              from the city&apos;s most revered destinations.
+            </p>
+
+            <ul className="space-y-2.5 mb-8">
+              {landmarks.map((l, i) => (
+                <motion.li
+                  key={l.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.1 + i * 0.07 }}
+                  className="flex items-center gap-2"
+                >
+                  <TempleMarker />
+                  <span className="display-heading text-[15px] text-copper-deep" style={{ fontWeight: 600 }}>
+                    {l.name}
+                  </span>
+                  <Image
+                    src="/images/candle.png"
+                    alt=""
+                    width={8}
+                    height={16}
+                    className="object-contain opacity-80"
+                  />
+                  <span className="body-serif text-[15px] text-copper-deep tabular-nums ml-4">
+                    {l.distance}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+
+            <p className="body-serif text-[16px] text-copper-deep leading-[1.7]" style={{ fontWeight: 600 }}>
+              A location that brings you closer
+              <br /> to devotion, every single day.
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
