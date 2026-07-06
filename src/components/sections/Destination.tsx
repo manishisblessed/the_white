@@ -11,6 +11,33 @@ const landmarks = [
   { name: "Banke Bihari Temple", distance: "3 km" },
 ];
 
+function ArtisticDivider() {
+  return (
+    <div className="w-full py-4" style={{ background: "rgba(244, 236, 220, 0.92)" }}>
+      <div className="flex items-center gap-0 mx-auto max-w-5xl px-6">
+        <div className="flex-1 h-[1px]" style={{ background: "linear-gradient(to right, transparent 0%, #8B4A2B 100%)" }} />
+        <svg width="10" height="10" viewBox="0 0 10 10" className="mx-1 flex-shrink-0">
+          <rect x="2" y="2" width="6" height="6" transform="rotate(45 5 5)" fill="#8B4A2B" opacity="0.5" />
+        </svg>
+        <div className="w-12 md:w-20 h-[1px] bg-[#8B4A2B]" />
+        <div className="mx-3 flex-shrink-0">
+          <svg width="50" height="50" viewBox="0 0 50 50">
+            <rect x="10" y="10" width="30" height="30" transform="rotate(45 25 25)" fill="none" stroke="#8B4A2B" strokeWidth="1.5" opacity="0.8" />
+            <rect x="15" y="15" width="20" height="20" transform="rotate(45 25 25)" fill="#8B4A2B" opacity="0.12" stroke="#8B4A2B" strokeWidth="0.8" />
+            <circle cx="25" cy="25" r="3" fill="#8B4A2B" opacity="0.9" />
+            <circle cx="25" cy="25" r="1.2" fill="#FBF7F0" />
+          </svg>
+        </div>
+        <div className="w-12 md:w-20 h-[1px] bg-[#8B4A2B]" />
+        <svg width="10" height="10" viewBox="0 0 10 10" className="mx-1 flex-shrink-0">
+          <rect x="2" y="2" width="6" height="6" transform="rotate(45 5 5)" fill="#8B4A2B" opacity="0.5" />
+        </svg>
+        <div className="flex-1 h-[1px]" style={{ background: "linear-gradient(to left, transparent 0%, #8B4A2B 100%)" }} />
+      </div>
+    </div>
+  );
+}
+
 function TempleMarker() {
   return (
     <svg width="14" height="20" viewBox="0 0 14 20" className="flex-shrink-0 mt-1 text-copper">
@@ -95,7 +122,14 @@ export default function Destination() {
             sizes="100vw"
             className="object-cover object-center"
           />
+          <span
+            className="absolute bottom-3 right-4 text-[9px] tracking-[0.18em] uppercase text-white/80 drop-shadow-md"
+            style={{ fontFamily: "var(--font-montserrat)" }}
+          >
+            *An Artistic Impression
+          </span>
         </div>
+        <ArtisticDivider />
       </div>
 
       {/* ── Desktop: original overlaid layout ── */}
@@ -170,7 +204,16 @@ export default function Destination() {
             </p>
           </motion.div>
         </div>
+
+        <span
+          className="absolute bottom-4 right-6 z-10 text-[10px] tracking-[0.18em] uppercase text-white/80 drop-shadow-md"
+          style={{ fontFamily: "var(--font-montserrat)" }}
+        >
+          *An Artistic Impression
+        </span>
       </div>
+
+      <ArtisticDivider />
     </section>
   );
 }

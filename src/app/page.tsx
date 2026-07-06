@@ -8,6 +8,8 @@ import SignatureSuites from "@/components/sections/SignatureSuites";
 import Experience from "@/components/sections/Experience";
 import Devika from "@/components/sections/Devika";
 import Enquiry from "@/components/sections/Enquiry";
+import ContactForm from "@/components/sections/ContactForm";
+import StickyEnquiry from "@/components/StickyEnquiry";
 
 export default function Home() {
   return (
@@ -21,7 +23,9 @@ export default function Home() {
       <SignatureSuites />
       <Experience />
       <Devika />
+      <ContactForm />
       <Enquiry />
+      <StickyEnquiry />
     </main>
   );
 }

@@ -76,6 +76,18 @@ export default function Enquiry() {
         </div>
       </div>
 
+      {/* Copyright */}
+      <div className="border-t border-cream-50/20 mt-2">
+        <div className="max-w-7xl mx-auto px-6 py-4 text-center">
+          <p
+            className="text-cream-50/70 text-[11px] tracking-[0.15em]"
+            style={{ fontFamily: "var(--font-montserrat)" }}
+          >
+            &copy; All Copyright Reserved To Shomit Finance Ltd
+          </p>
+        </div>
+      </div>
+
       {/* Modal */}
       {modalOpen && (
         <EnquiryModal onClose={() => setModalOpen(false)} />

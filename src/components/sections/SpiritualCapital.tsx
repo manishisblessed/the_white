@@ -10,7 +10,7 @@ const temples = [
   { src: "/images/banke-bihari.jpg", name: "Banke Bihari Temple" },
   { src: "/images/prem-mandir2.jpg", name: "Prem Mandir" },
   { src: "/images/iskcon.jpg", name: "ISKCON Temple" },
-  { src: "/images/chandrodaya.jpg", name: "Chandrodaya Mandir" },
+  { src: "/images/chandrodaya.png", name: "Chandrodaya Mandir" },
 ];
 
 export default function SpiritualCapital() {
