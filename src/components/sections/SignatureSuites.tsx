@@ -6,11 +6,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 
 const suites = [
-  { src: "/images/suite-1.jpg", alt: "Luxury bedroom suite" },
-  { src: "/images/suite-2.jpg", alt: "Premium bedding detail" },
-  { src: "/images/suite-3.jpg", alt: "Signature suite balcony view" },
-  { src: "/images/suite-4.jpg", alt: "Curated bath sanctuary" },
-  { src: "/images/suite-5.jpg", alt: "Designer interior detail" },
+  { src: "/images/twb-suite.jpg", alt: "White Butter signature suite" },
+  { src: "/images/twb-suite-living-room.png", alt: "Suite living room" },
+  { src: "/images/twb-suite-lawn-terrace.png", alt: "Suite with private lawn terrace view" },
+  { src: "/images/twb-garden.png", alt: "Garden residence view" },
+  { src: "/images/twb-residences.jpg", alt: "White Butter residences" },
+  { src: "/images/twb-soulful-studio.jpg", alt: "Soulful residences studio" },
 ];
 
 const slides = [...suites, ...suites, ...suites, ...suites, ...suites];
