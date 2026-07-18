@@ -14,7 +14,10 @@ export default function Hero() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover object-center"
         >
-          <source src="/images/white_butter_home.mp4" type="video/mp4" />
+          <source
+            src="https://media.githubusercontent.com/media/manishisblessed/the_white/main/public/images/white_butter_home.mp4"
+            type="video/mp4"
+          />
         </video>
         {/* Subtle warm overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/10" />
